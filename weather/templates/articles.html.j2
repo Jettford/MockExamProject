@@ -1,0 +1,19 @@
+{% extends "template.html.j2" %}
+
+{% from "utils.j2" import content_box with context %}
+
+{% block body %}
+    {% call content_box("Articles") %}
+        {% for article in articles %}
+            <div style="margin: 10px;">
+                <a href="/article/{{ article.article_id }}">
+                    <div class="article-link">
+                        <h1>{{ article.title }}</h1>
+
+                        <b> &gt; </b>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    {% endcall %}
+{% endblock %}
