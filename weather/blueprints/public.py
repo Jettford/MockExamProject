@@ -18,7 +18,7 @@ def index():
         weather = Weather(float(lat), float(lon))
 
         # evaulate triggers
-        triggers = Database.get_triggers()
+        triggers = Database.get_triggers() or []
 
         for trigger in triggers:
             lhs = trigger.lhs.replace("%temp%", str(weather.get_current_temp()))
