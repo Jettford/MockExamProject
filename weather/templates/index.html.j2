@@ -33,7 +33,7 @@
     {% endcall %}
 
     {% call content_box("Get the Weather and Forecast for elsewhere") %}
-        <form action="/get_weather" method="post">
+        <form action="/weather" method="get">
             <label for="city">City</label>
             <input type="text" name="city" id="city">
             <input type="submit" value="Get Weather">

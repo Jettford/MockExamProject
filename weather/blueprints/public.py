@@ -30,10 +30,13 @@ def index():
     return render_template("index.html.j2", title="Landing", recent_articles=session.get("recent_articles", [])[:3], weather=weather, recommended_articles=recommended_articles)
 
 
-@public.route('/get_weather', methods=['POST'])
+@public.route('/weather')
 def get_weather():
     geo_toolkit: GeoToolkit = GeoToolkit()
-    lat, lon = geo_toolkit.fetch_lat_lon(request.form['location'])
+    try:
+        lat, lon = geo_toolkit.fetch_lat_lon(request.args['city'])
+    except:
+        return redirect(f"/")
     return redirect(f"/?lat={lat}&lon={lon}")
 
 @public.route("/article/<id>")
