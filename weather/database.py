@@ -80,7 +80,7 @@ class Database:
     
     def create_user(username: str, password: str) -> None:
         cursor = Database.cursor()
-        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+        cursor.execute("INSERT INTO users (username, password, admin) VALUES (?, ?, 0)", (username, password))
         conn.commit()
 
     def get_triggers() -> Optional[list[AdviceTrigger]]:
