@@ -1,6 +1,0 @@
-.centered { 
-    /* due to the limited use-case, this is a safe assumption */
-    width: 50%;
-
-    margin: 20px;
-}
